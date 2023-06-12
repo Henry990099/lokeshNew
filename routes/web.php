@@ -16,8 +16,12 @@ use App\Http\Controllers\AdminGoogleController;
 |
 */
 
-// Route::middleware(['auth'])->group(function () {
+Route::group(['middleware'=>['UserAuth']],function(){
     Route::get('/', [GoogleSpreadsheetController::class, 'stepOne'])->middleware('guest');
+
+    Route::get('admin', [AdminGoogleController::class, 'index']);
+    Route::POST('inventory', [AdminGoogleController::class, 'inventory']);  
+});
        
 Route::get('step-two/{category}', [GoogleSpreadsheetController::class, 'stepTwo']);
 Route::get('step-three/{subcategory}', [GoogleSpreadsheetController::class, 'stepThree']);
@@ -52,10 +56,8 @@ Route::get('thickness/{thickness}', [GoogleSpreadsheetController::class, 'thickn
 Route::get('importCsv', [GoogleSpreadsheetController::class, 'importCSV']);
 
 
-Route::get('admin', [AdminGoogleController::class, 'index']);
-Route::POST('inventory', [AdminGoogleController::class, 'inventory']);
+
 Route::get('/download-pdf', [GoogleSpreadsheetController::class, 'downloadPDF']);
-// });
 
 
 // Login route
@@ -63,7 +65,7 @@ Route::get('/login', 'App\Http\Controllers\AuthController@showLoginForm')->name(
 Route::post('/login', 'App\Http\Controllers\AuthController@login')->name('login.submit');
 
 // Logout route
-Route::post('/logout', 'App\Http\Controllers\AuthController@logout')->name('logout');
+Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('logout');
 
      
 

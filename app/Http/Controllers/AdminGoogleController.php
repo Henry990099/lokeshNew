@@ -20,7 +20,6 @@ class AdminGoogleController extends Controller
     }
     public function inventory(Request $request)
     {
-
         $spreadsheetId = env('SHEET2_SPREADSHEET_ID');
         $sheetId = env('SHEET2_SHEET_ID');
         $data = $request->all();
@@ -48,6 +47,23 @@ class AdminGoogleController extends Controller
         Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D41')->update([[$data['qty1']]]);
         Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D42')->update([[$data['qty2']]]);
         Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['qty3']]]);
+
+        Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['fkm1']]]);
+        Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['fkm2']]]);
+        Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['fkm3']]]);
+        Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['fkm4']]]);
+
+        Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['pccost1']]]);
+        Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['pccost2']]]);
+        Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['pccost3']]]);
+        Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['pccost4']]]);
+
+        Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['sliconcost1']]]);
+        Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['sliconcost2']]]);
+        Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['sliconcost3']]]);
+        Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D43')->update([[$data['sliconcost4']]]);
+
+
         Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D52')->update([[$data['mtrl'].'$']]);
 
         Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Admin')->range('D54')->update([[$data['overhead'].'%']]);

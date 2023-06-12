@@ -242,22 +242,25 @@ class GoogleSpreadsheetController extends Controller
         $values = Sheets::range('')->all();
     }
     public function quantity(Request $request)
-    {
+    {        
         for($i=38;$i<=42;$i++)
             Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Webpage')->range('D'.$i)->update([[0]]);
        
-         $data=$request->all();
+        $data=$request->all();
         $quantity=$data['quantity'];
        
         $column=38;
         if(!empty($quantity))
         {
+
             foreach($quantity as $value)
             {
+                $test=0;
                 $message="";
                 if(isset($value))
                 {
-                     Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Webpage')->range('D'.$column)->update([[$value]]);
+                    $test=(int)$value;
+                     Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Webpage')->range('D'.$column)->update([[$test]]);
                      $message= Sheets::spreadsheet('1Fk9HaiJ9tLT3bQDDE4bslky2dtC3MVOxPbflsM98wqo')->sheet('Webpage')->range('E'.$column++)->get();
                      $fetchMessage[]=$message[0][0];
                 }

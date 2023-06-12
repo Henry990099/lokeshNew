@@ -620,6 +620,124 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width:1440px){
+        .first-btn a {
+      font-size: 13px;
+    color: #4a9ff0;
+    background: #ffffff;
+      padding: 3px 19px;
+      border-radius: 28px;
+      position: absolute;
+          top: 14.6%;
+    left:12%;
+      width: 21%;
+      border: 1px solid #4a9ff0;
+      text-align: center;
+  }
+  .first-btn a:hover{
+        background: #45a0f3;
+    border: 1px solid #4a9ff0;
+    color: #ffffff;
+}
+
+    .sec-btn a {
+      font-size: 13px;
+      color: #4a9ff0;
+      background: #ffffff;
+      padding: 3px 19px;
+      border-radius: 28px;
+      position: absolute;
+      top: 2.9%;
+      left: 38%;
+      width: 21%;
+      border: 1px solid #4a9ff0;
+      text-align: center;
+    }
+
+    .sec-btn a:hover {
+      background: #45a0f3;
+      border: 1px solid #4a9ff0;
+      color: #ffffff;
+    }
+
+    .third-btn a {
+    font-size: 13px;
+    color: #4a9ff0;
+    background: #ffffff;
+    padding: 3px 17px;
+    border-radius: 28px;
+    position: absolute;
+    top: 1.9%;
+    left: 60.5%;
+    width: 21%;
+    border: 1px solid #4a9ff0;
+    text-align: center;
+
+    }
+
+    .third-btn a:hover {
+      background: #45a0f3;
+      border: 1px solid #4a9ff0;
+      color: #ffffff;
+    }
+
+    .fourth-btn a {
+    font-size: 13px;
+    color: #4a9ff0;
+    background: #ffffff;
+    padding: 3px 17px;
+    border-radius: 28px;
+    position: absolute;
+    top: 12.1%;
+    left: 72.5%;
+    width: 21%;
+    border: 1px solid #4a9ff0;
+    text-align: center;
+
+    }
+
+    .fourth-btn a:hover {
+      background: #45a0f3;
+      border: 1px solid #4a9ff0;
+      color: #ffffff;
+    }
+
+    .five-btn a {
+      font-size: 13px;
+      color: #4a9ff0;
+      background: #ffffff;
+      padding: 3px 17px;
+      border-radius: 28px;
+      position: absolute;
+      top: 85.1%;
+      left: 10.5%;
+      width: 28%;
+      border: 1px solid #4a9ff0;
+      text-align: center;
+    }
+
+    .five-btn a:hover {
+      background: #45a0f3;
+      border: 1px solid #4a9ff0;
+      color: #ffffff;
+    }
+
+    .six-btn a {
+      font-size: 13px;
+      color: #4a9ff0;
+      background: #ffffff;
+      padding: 3px 17px;
+      border-radius: 28px;
+      position: absolute;
+      top: 85.1%;
+      left: 51.1%;
+      width: 21%;
+      border: 1px solid #4a9ff0;
+      text-align: center;
+    }
+  }
+
   </style>
   <script>
     var backup="";
@@ -1248,6 +1366,7 @@ $('.quantity').on('focusout', function() {
                quantity: values
              },
         success: function(data) {
+          console.log(data);
           var result = JSON.parse(data);
           if(result['code']=='200')
             {

@@ -17,27 +17,41 @@ class AuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        $staticUser = [
-            'email' => 'admin@gmail.com',
-            'password' => 'password',
+        $staticUser[0] = [
+            'email' => 'user@gmail.com',
+            'password' => 'password',            
+        ];
+        $staticUser[1] = [
+            'email' => 'user1@gmail.com',
+            'password' => 'password',            
+        ];
+        $staticUser[2] = [
+            'email' => 'user2@gmail.com',
+            'password' => 'password',            
         ];
 
-        if ($credentials['email'] === $staticUser['email'] && $credentials['password'] === $staticUser['password']) {
-            $user = new CustomUser(1, 'John Doe', $staticUser['email']);
 
-            Auth::login($user);
+        foreach($staticUser as $userStatic)
+        {
 
-            return redirect()->to('/');
-
+            if ($credentials['email'] === $userStatic['email'] && $credentials['password']) {
+          
+                session()->put('user_id',2);
+                return redirect()->to('/');
+                
+            }
+            else{
+                return redirect()->to('/admin');
+            }
         }
         return redirect()->route('login')->withErrors('Invalid credentials');
-    }
 
+        
+    }
 
     public function logout(Request $request)
     {
-        $request->session()->forget('user');
-
+        $request->session()->forget('user_id');
         return redirect()->route('login');
     }
 }
