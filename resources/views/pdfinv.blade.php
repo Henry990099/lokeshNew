@@ -32,7 +32,7 @@
                   text-align: center;
                 }
                 .textbox textarea{
-                margin: 0rem 6rem;
+                margin: 0rem 1rem;
                 width: 60%;
                 height: 70px;
             }
@@ -41,14 +41,14 @@
         <div class="container">
             <div class="textbox">
                 <div>
-                    <h6 style="font-size: 35px; color: #47a5f4;    margin-right: 18rem;">Seal Configurator <sup>TM</sup></h6>
+                    <h6 style="font-size: 30px; color: #000000;">Seal Configurator <sup>TM</sup></h6>
                 </div>
             </div>
 
             <div class="textbox">
                 <table>
                     <thead>
-                        <tr style="background: #47a5f4;">
+                        <tr style="background: #e8e3e2;">
                             <th>Estimate#</th>
                             <th>Date</th>
                         </tr>
@@ -81,7 +81,7 @@
                 <label style="font-weight: bold;font-size: 20px">NAME / ADDRESS</label>
                  <table style=" margin-top: 1rem;">
                     <thead>
-                        <tr style="background: #47a5f4;">
+                        <tr style="background: #e8e3e2;">
                         </tr>
                     </thead>
                     <tbody>
@@ -96,11 +96,11 @@
                 </table>
             </div>
 
-            <div class="textbox" style="">
-                <label style="font-weight: bold;font-size: 20px  margin-top: 5rem;">SHIP TO</label>
-                 <table style=" margin-top: 5rem;">
+            <div class="textbox" style="margin-top: 1rem">
+                <label style="font-weight: bold;font-size: 20px  ">SHIP TO</label>
+                 <table style=" margin-top: 1rem;">
                     <thead>
-                        <tr style="background: #47a5f4;">
+                        <tr style="background: #e8e3e2;">
                         </tr>
                     </thead>
                     <tbody>
@@ -115,11 +115,11 @@
             </div>
         </div>
 
-        <table style="    width: 100%; margin-top: 2rem">
+        <table style="width: 100%; margin-top: 2rem">
             <thead>
                  @foreach ($output as $key => $value) 
                     @if($key==0)
-                        <tr style="background: #47a5f4;">
+                        <tr style="background: #e8e3e2;">
                             @foreach($value as $key2=>$value2)
                                 @if($value2=="0")
                                 <?php continue ; ?>
@@ -140,4 +140,35 @@
                     @endforeach
             </tbody>
         </table>
- 
+
+        <div class="container">
+        <div class="textbox" style="margin-top: 1rem">
+            <label style="font-weight: bold;font-size: 20px;float:left;margin-left:100px;margin-bottom:10px ">Approved</label>
+        <div class="textbox">
+            <table style=" margin-top: 1rem; width:40%;clear:both">
+                <thead>
+                    <tr style="background: #47a5f4;">
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name : ____________</td>
+                    </tr>
+                    <tr>
+                        <td>QTY : ______________</td>
+                    </tr>
+                    <tr>
+                        <td>Address : ____________</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+        <div class="textbox" style="float: right">
+            <p>61.85 x 64.85 x 7.50</p>
+            <p>Material: PTFE Carbon-Graphite(23/2)</p>
+            <p>Dimension: Metric</p>
+            <p>05/012/23</p>
+        </div>
+        
+    </div>

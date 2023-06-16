@@ -18,9 +18,6 @@ use App\Http\Controllers\AdminGoogleController;
 
 Route::group(['middleware'=>['UserAuth']],function(){
     Route::get('/', [GoogleSpreadsheetController::class, 'stepOne'])->middleware('guest');
-
-    Route::get('admin', [AdminGoogleController::class, 'index']);
-    Route::POST('inventory', [AdminGoogleController::class, 'inventory']);  
 });
        
 Route::get('step-two/{category}', [GoogleSpreadsheetController::class, 'stepTwo']);
@@ -66,6 +63,25 @@ Route::post('/login', 'App\Http\Controllers\AuthController@login')->name('login.
 
 // Logout route
 Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('logout');
+
+
+
+
+Route::group(['middleware'=>['UserAuth']],function(){
+    Route::get('/', [GoogleSpreadsheetController::class, 'stepOne'])->middleware('guest');
+});
+//admin routes
+
+// Login route
+Route::get('/admin-login', 'App\Http\Controllers\AdminAuthController@showLoginForm')->name('login');
+Route::post('/admin-login', 'App\Http\Controllers\AdminAuthController@login')->name('login.submit');
+
+
+// Logout route
+Route::get('/logout', 'App\Http\Controllers\AdminAuthController@logout')->name('logout');
+
+Route::get('admin', [AdminGoogleController::class, 'index']);
+Route::POST('inventory', [AdminGoogleController::class, 'inventory']);  
 
      
 
